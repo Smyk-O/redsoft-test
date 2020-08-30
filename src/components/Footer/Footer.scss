@@ -1,0 +1,29 @@
+.footer {
+  padding: 24px calc(50% - 1214px / 2);
+  height: 96px;
+  box-sizing: border-box;
+  background: #ECEAEA;
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer__left {
+  display: flex;
+  align-items: center;
+}
+
+
+.footer__contact {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  .contact__item {
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    margin-left: 48px;
+    img {
+      margin-right: 11px;
+    }
+  }
+}

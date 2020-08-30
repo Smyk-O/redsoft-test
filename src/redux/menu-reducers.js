@@ -1,11 +1,10 @@
 let initialState = {
   menuItem: [
-    { name: "Profile", url: "/profile", id:"1" },
-    { name: "Dialogs", url: "/dialogs", id:"2" },
-    { name: "News", url: "/naws", id:"3" },
-    { name: "Music", url: "/music", id:"4" },
-    { name: "Users", url: "/users", id:"5" },
-    { name: "Settings", url: "/settings", id:"6" }
+    { name: "Каталог", url: "/catalog", id:"1" },
+    { name: "Доставка", url: "/delivery", id:"2" },
+    { name: "Оплата", url: "/payment", id:"3" },
+    { name: "Контакты", url: "/contacts", id:"4" },
+    { name: "О галерее", url: "/about", id:"5" },
   ]
 };
 

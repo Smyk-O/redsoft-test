@@ -1,15 +1,15 @@
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
-import thunkMiddleware from 'redux-thunk';
+import { createStore, combineReducers, applyMiddleware,  } from 'redux';
 import menuReducer from './menu-reducers';
+import contactReducer from './contact-reducers';
+
 
 let reducers = combineReducers({
   menu: menuReducer,
+  contact: contactReducer
 });
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
-  reducers,
-  composeEnhancers(applyMiddleware(thunkMiddleware))
+  reducers
 );
 
 export default store;

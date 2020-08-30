@@ -1,0 +1,13 @@
+.header {
+  padding: 24px calc(50% - 1216px / 2);
+  height: 96px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #E1E1E1;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header__left {
+  display: flex;
+  align-items: center;
+}
