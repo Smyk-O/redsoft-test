@@ -21,7 +21,7 @@ export default function Search() {
         placeholder={'Поиск по названию картины'}
         className={'search__text search__input'}
       />
-      <input type="submit" value="Найти" className={'search__btn search__input'}/>
+      <input type="submit" value="Найти" className={'search__btn search__input btn'}/>
     </form>
   );
 }

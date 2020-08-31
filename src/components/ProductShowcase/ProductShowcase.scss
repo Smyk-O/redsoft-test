@@ -1,0 +1,12 @@
+.showcase {
+  margin: 45px 0;
+  padding: 0 calc(50% - 1216px / 2);
+}
+
+.product_cards__wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: stretch;
+  margin-top: 40px;
+}

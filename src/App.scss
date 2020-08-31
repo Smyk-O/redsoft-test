@@ -11,3 +11,46 @@ main {
 .logo {
   margin-right: 24px;
 }
+
+h1 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 150%;
+  margin: 0;
+}
+
+
+h2 {
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 150%;
+  margin: 0;
+}
+
+.btn {
+  font-family: Merriweather;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 700;
+  background:#382E2B;
+  color: #F4F6F9;
+  height: 100%;
+  width: 118px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border:none;
+  &.disabled {
+    background: #C1B4B1;
+    cursor: not-allowed;
+  }
+  &.in_the_cart{
+    background: #5B3A32;
+    img {
+      margin-right: 8px;
+    }
+  }
+  &:hover {
+    background: #776763;
+  }
+}
