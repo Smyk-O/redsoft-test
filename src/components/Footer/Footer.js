@@ -7,7 +7,7 @@ const FooterContacts = ({contact}) => {
   return (
     <div className={'footer__contact'}>
       {contact.map((item) => (
-        <div className={'contact__item'}>
+        <div className={'contact__item'} key={item.id}>
           <img src={item.icoUrl} alt="" />
           {item.data}
         </div>

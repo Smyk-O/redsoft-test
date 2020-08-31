@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './ProductShowcase.scss';
 import ProductCard from './ProductCard/ProductCard';
 
-function ProductCatalog({ products, cart }) {
+function ProductCatalog({ products, cart, putProductInCart, delProductInCart }) {
   return (
     <div className={'product_cards__wrapper'}>
       {products.map((product) => (
@@ -16,18 +16,20 @@ function ProductCatalog({ products, cart }) {
           article={product.article}
           imageUrl={product.imageUrl}
           cart={cart}
+          putProductInCart={putProductInCart}
+          delProductInCart={delProductInCart}
         />
       ))}
     </div>
   );
 }
 
-function ProductShowcase({ product, cart }) {
+function ProductShowcase({ product, cart, putProductInCart, delProductInCart }) {
 
   return (
     <main className={'showcase'}>
       <h1 className={'showcase__name'}>{product.name}</h1>
-      <ProductCatalog cart={cart} products={product.products} />
+      <ProductCatalog cart={cart} products={product.products} putProductInCart={putProductInCart} delProductInCart={delProductInCart}/>
     </main>
   );
 }

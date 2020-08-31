@@ -1,23 +1,48 @@
 import React from 'react';
 import './App.scss';
+
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 import ProductShowcase from './components/ProductShowcase/ProductShowcase';
-      
-import store from './redux/store';
+import { connect } from 'react-redux';
+import { putProductInCart, delProductInCart } from './redux/cart-reducers';
+import { bindActionCreators } from 'redux';
 
-function App({state}) {
-  return (
+class App extends React.Component {
+  componentDidMount() {
+    if (sessionStorage.getItem('cart')) {
+      let cartData = JSON.parse(sessionStorage.getItem('cart'));
+      cartData.map((i) => this.props.putProductInCart(i));
+    }
+  }
+
+  render() {
+    return (
       <div className="app">
         <Header />
-        <ProductShowcase cart={state.cart.card} product={state.product.groupOfProducts[0]} />
-        <Footer contact={state.contact} />
+        <ProductShowcase
+          cart={this.props.cart.cart}
+          product={this.props.product.groupOfProducts[0]}
+          putProductInCart={this.props.putProductInCart}
+          delProductInCart={this.props.delProductInCart}
+        />
+        <Footer contact={this.props.contact} />
       </div>
-  );
+    );
+  }
 }
 
-function MainApp(props) {
-  return <App state={store.getState()}></App>
-}
+const mapStateToProps = (state) => {
+  return state;
+};
 
-export default MainApp;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    putProductInCart: bindActionCreators(putProductInCart, dispatch),
+    delProductInCart: bindActionCreators(delProductInCart, dispatch),
+  };
+};
+
+const WrappedAppComponent = connect(mapStateToProps, mapDispatchToProps)(App);
+
+export default WrappedAppComponent;

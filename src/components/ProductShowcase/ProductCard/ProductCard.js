@@ -11,11 +11,12 @@ function ProductCard({
   article,
   imageUrl,
   cart,
+  putProductInCart,
+  delProductInCart,
 }) {
   const [classes, setClasses] = useState('');
   const [isTheCart, setInTheCart] = useState(false);
-  const [isDisabled, setIsDisabled] = useState(false);
-
+  const [isDisabled, setIsDisabled] = useState(true);
 
   useEffect(() => {
     if (Boolean(number)) {
@@ -23,17 +24,26 @@ function ProductCard({
     } else {
       setClasses('product_card sold');
     }
+  }, [number]);
+
+  useEffect(() => {
+    setIsDisabled(false)
     setInTheCart(
       cart.find((i) => {
         return i === article;
       })
     );
-  }, []);
+  }, [article, cart]);
 
   const addToCart = useCallback(() => {
     setIsDisabled(!isDisabled);
-    debugger
-  }, [isDisabled]);
+    putProductInCart(article);
+  }, [isDisabled, putProductInCart, article]);
+
+  const delToCart = useCallback(() => {
+    setIsDisabled(!isDisabled);
+    delProductInCart(article);
+  }, [isDisabled, delProductInCart, article]);
 
   return (
     <div className={classes}>
@@ -56,10 +66,14 @@ function ProductCard({
                 </div>
               </div>
               <button
-                className={
-                  isTheCart ? 'product_card_btn in_the_cart btn' : isDisabled? 'btn disabled' : 'btn'
+                className={isTheCart
+                    ? 'btn in_the_cart'
+                    : 'btn'
                 }
-                onClick={addToCart}
+                disabled={isDisabled}
+                onClick={
+                  isTheCart ? delToCart : addToCart
+                }
               >
                 {isTheCart ? (
                   <>
